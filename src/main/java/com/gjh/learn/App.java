@@ -1,4 +1,4 @@
-package com.gjh.learn.h2;
+package com.gjh.learn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2020/12/22 20:57
  */
 @SpringBootApplication
-public class H2App {
+public class App {
     public static void main(String[] args) {
-        SpringApplication.run(H2App.class, args);
+        SpringApplication.run(App.class, args);
     }
 }

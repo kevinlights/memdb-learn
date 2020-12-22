@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Iterator;
 import java.util.Optional;
 
 /**
@@ -25,7 +26,7 @@ public class EntityTest {
     @Autowired
     ProductRepository productRepository;
 
-    @Before
+//    @Before
     public void initData() {
         productRepository.save(new Product(1l, "aaa"));
         productRepository.save(new Product(2l,"bbb"));
@@ -38,6 +39,16 @@ public class EntityTest {
     public void testfind() {
         Optional<Product> prod = productRepository.findById((long) 1);
         Long id = prod.get().getId();
+    }
+
+    @Test
+    public void testlist() {
+        Iterable<Product> all = productRepository.findAll();
+        Iterator<Product> iterator = all.iterator();
+        while (iterator.hasNext()) {
+            Product prod = iterator.next();
+            System.out.print(prod.getId() + "\t" + prod.getName() + "\n");
+        }
     }
 
 }
